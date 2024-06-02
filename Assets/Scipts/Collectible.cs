@@ -9,11 +9,11 @@ public class Collectible : MonoBehaviour
         m_startPosition = transform.position;
     }
 
-    void OnTrigger(Collider other){
+    void OnTriggerStay(Collider other){
         other.gameObject.GetComponent<Score>().IncrementScore();
         transform.position = new Vector3(Random.Range(-range,range),transform.position.y,Random.Range(-range,range));
     }
-    void ResetPosition(){
+    public void ResetPosition(){
         transform.position = m_startPosition;
     }
 }

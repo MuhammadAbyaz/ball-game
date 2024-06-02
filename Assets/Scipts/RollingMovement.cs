@@ -15,6 +15,9 @@ public class RollingMovement : MonoBehaviour
     void FixedUpdate()
     {
         m_rigidbody.AddForce(m_movementDirection * m_speed);
+        if(transform.position.y <= GameManager.RespawnHeight){
+            ResetPosition();
+        }
     }
     public void ResetPosition(){
         m_rigidbody.velocity = Vector3.zero;
